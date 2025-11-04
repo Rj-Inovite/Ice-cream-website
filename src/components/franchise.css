@@ -1,0 +1,107 @@
+:root {
+  --ff-pink-primary: #ec4899;
+  --ff-pink-light: #fdf2f8;
+  --ff-pink-border: #fbcfe8;
+}
+
+.custom-bg-light {
+  background-color: var(--ff-pink-light);
+  font-family: 'Inter', sans-serif;
+}
+
+.text-primary-custom {
+  color: var(--ff-pink-primary) !important;
+}
+
+.custom-banner {
+  height: 20rem;
+  background-image: url('https://dminteriors.lk/wp-content/uploads/2023/12/Ice-Cream-Shop-Design-Ideas-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.7s ease-out;
+}
+
+.custom-fieldset {
+  border-color: var(--ff-pink-border) !important;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-fieldset:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--ff-pink-primary);
+  box-shadow: 0 0 0 0.25rem rgba(236, 72, 153, 0.25);
+}
+
+.custom-radio-label:hover {
+  background-color: #ffe4e6;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.custom-submit-btn {
+  background-color: var(--ff-pink-primary) !important;
+  color: white !important;
+  border-color: var(--ff-pink-primary) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-submit-btn:hover {
+  background-color: #db2777 !important;
+  transform: scale(1.01);
+}
+
+.custom-success-alert {
+  background-color: var(--ff-pink-primary) !important;
+  border: none !important;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.border-dashed-custom {
+  border: 2px dashed var(--ff-pink-border);
+}
+
+.image-card {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.image-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.custom-image {
+  height: 12rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-card:hover .text-overlay {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mount-out-animation {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+.mount-in-animation {
+  opacity: 1;
+  transform: translateY(0);
+}

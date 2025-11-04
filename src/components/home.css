@@ -1,0 +1,429 @@
+/* Basic Resets and Body Styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+
+.home-container {
+  width: 100%;
+  overflow: hidden; /* Ensure elements don't spill out */
+}
+
+/* 1. Banner Section with Videos */
+.banner-section {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff69b4; /* Pink color */
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%; /* Round shape */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: #ff1493; /* Darker pink on hover */
+  transform: scale(1.1);
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+.video-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicator.active {
+  background: white;
+}
+
+/* 2. Scroll-triggered "Love" section */
+.love-section {
+  width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.5s ease-out; /* Smooth background transition */
+}
+
+.love-text {
+  font-size: 10vw; /* Responsive font size */
+  color: #fff; /* White text for contrast */
+  font-weight: bold;
+  position: relative; /* For heart positioning */
+  z-index: 2; /* Ensure text is above background */
+}
+
+.love-word {
+  color: #ff0000; /* Red color for 'love' */
+}
+
+.love-heart {
+    position: absolute;
+    width: 8vw; /* Adjust size as needed */
+    height: auto;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the heart */
+    z-index: 1; /* Heart behind the text */
+}
+
+/* 3. Minimized Horizontal Row with Virtual Counts */
+.counts-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.count-item {
+  text-align: center;
+  margin: 20px;
+}
+
+.count-number {
+  font-size: 3em;
+  font-weight: bold;
+  color: #ff69b4; /* Pink color */
+  display: block;
+}
+
+.count-item p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* 4. Four Ice Cream Image Sections */
+.icecream-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 30px;
+  padding: 50px;
+  background-color: #fff;
+}
+
+.icecream-block {
+  text-align: center;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.icecream-block img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.icecream-block h3 {
+  padding: 15px;
+  margin: 0;
+  color: #333;
+  font-size: 1.5em;
+}
+
+/* 5. "Freshnfreeze" Section */
+.freshnfreeze-promo {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Adjust height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.promo-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.promo-content h2 {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+}
+
+.promo-content .highlight {
+  color: #ffed8d; /* Yellow highlight */
+}
+
+.promo-content p {
+  font-size: 1.5em;
+  line-height: 1.6;
+}
+
+/* 6. Small Banner Section with Sliding Images */
+.small-banner-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  background-color: #ffe0b3; /* Light orange background */
+}
+
+.banner-slider-container {
+  display: flex;
+  width: 100%;
+}
+
+.banner-slide-track {
+  display: flex;
+  width: max-content; /* Allows all images to be in one row */
+}
+
+.banner-slide-track img {
+  width: 300px; /* Fixed width for banner images */
+  height: 150px; /* Fixed height for banner images */
+  object-fit: cover;
+  margin: 0 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+
+/* 7. Nuts to Ice Cream Section */
+.nuts-to-icecream-section {
+  width: 100%;
+  padding: 80px 0;
+  background-color: #5C3A21; /* Rich chocolate brown background */
+  overflow: hidden;
+}
+
+.chocolate-background {
+    width: 100%;
+    height: 100%; /* Or a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cone-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align cones to the bottom */
+    gap: 50px; /* Space between cones */
+    position: relative;
+    z-index: 1;
+}
+
+.cone-wrapper {
+    position: relative;
+    width: 200px; /* Size of the cone area */
+    height: 300px; /* Height of the cone area */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cone-base {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.cone-topping {
+    width: 120%; /* Slightly wider than the cone base for better visual */
+    height: auto;
+    position: absolute;
+    top: 0; /* Position at the top of the wrapper */
+    left: -10%; /* Adjust to center visually */
+    z-index: 2;
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for topping change */
+}
+
+.cone-topping.nuts {
+    opacity: 1;
+}
+
+.cone-topping.icecream {
+    opacity: 0; /* Initially hidden */
+}
+
+/* Animation for nuts turning to ice cream (triggered by scroll animation in JS) */
+.cone-wrapper.show-icecream .cone-topping.nuts {
+    opacity: 0;
+}
+.cone-wrapper.show-icecream .cone-topping.icecream {
+    opacity: 1;
+}
+
+
+/* 8. Our Happy Customers Section */
+.happy-customers-section {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #f0f8ff; /* Alice Blue background */
+}
+
+.happy-customers-section h2 {
+  font-size: 3em;
+  color: #580c3b;
+  margin-bottom: 30px;
+}
+
+.section-quote {
+  font-size: 1.5em;
+  color: #ff69b4; /* Pink color */
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.customer-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border: 5px solid #ffccdd; /* Soft pink border */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.customer-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.customer-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .love-text {
+    font-size: 15vw;
+  }
+  .promo-content h2 {
+    font-size: 2.5em;
+  }
+  .promo-content p {
+    font-size: 1.2em;
+  }
+  .cone-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .cone-wrapper {
+    width: 150px;
+    height: 250px;
+  }
+  .customer-circle {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .love-text {
+    font-size: 20vw;
+  }
+  .promo-content h2 {
+    font-size: 2em;
+  }
+  .promo-content p {
+    font-size: 1em;
+  }
+  .counts-section {
+    flex-direction: column;
+  }
+  .cone-wrapper {
+    width: 120px;
+    height: 200px;
+  }
+  .happy-customers-section h2 {
+    font-size: 2.2em;
+  }
+  .customer-grid {
+    grid-template-columns: 1fr;
+  }
+}

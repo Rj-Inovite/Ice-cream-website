@@ -1,0 +1,92 @@
+.chroma-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  --x: 0px;
+  --y: 0px;
+  --r: 300px;
+}
+
+.chroma-card {
+  background: var(--card-gradient, #222);
+  border: 2px solid var(--card-border, transparent);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.chroma-card:hover {
+  transform: translateZ(20px);
+}
+
+.chroma-img-wrapper {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.chroma-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.chroma-info {
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.chroma-info .name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.chroma-info .handle {
+  font-size: 0.9rem;
+  color: #aaa;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.chroma-info .role {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.chroma-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--x) var(--y), rgba(255,255,255,0.15) 0%, transparent 80%);
+  border-radius: 12px;
+  mix-blend-mode: screen;
+  transition: background-position 0.3s ease;
+}
+
+.chroma-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+  border-radius: 12px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}

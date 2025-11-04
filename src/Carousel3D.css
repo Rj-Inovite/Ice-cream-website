@@ -1,0 +1,25 @@
+.carousel {
+  transform: rotateX(-20deg) translateY(-70px);
+  transform-style: preserve-3d;
+  perspective: 800px;
+  user-select: none;
+  cursor: grab;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.carousel-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 50% 50%;
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    transform: rotateX(-10deg) scale(.6) translateY(-60px);
+  }
+}

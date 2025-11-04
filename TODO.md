@@ -1,0 +1,4 @@
+- [ ] Add useAnimation and useEffect imports to home.jsx
+- [ ] Add controls and useEffect to trigger stagger animation when scroll opacity > 0.5
+- [ ] Modify the love-text JSX to split "Taste the Fresh.Feel the Freeze" into individual letters with motion.span and stagger variants
+- [ ] Test the animation by running the app
