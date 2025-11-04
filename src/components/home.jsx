@@ -40,12 +40,6 @@ const Home = () => {
   const loveTextOpacity = useTransform(loveScrollProgress, [0.5, 1], [0, 1]);
   const loveTextY = useTransform(loveScrollProgress, [0.5, 1], [50, 0]);
 
-  // For the circular customer images
-  const { scrollYProgress: customersScrollProgress } = useScroll({
-    target: scrollRef,
-    offset: ['start end', 'end start']
-  });
-
   const customerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: (i) => ({
