@@ -7,6 +7,15 @@ import c7 from '../assets/images/c7.png';
 import c5 from '../assets/images/c5.png';
 import b3 from '../assets/images/b3.png';
 import img12 from '../assets/images/12.png';
+import vid13 from '../assets/images/vid 13.mp4';
+import vid2 from '../assets/images/vid 2.mp4';
+import vid11 from '../assets/images/vid 11.mp4';
+import vid12 from '../assets/images/vid 12.mp4';
+import vid1 from '../assets/images/vid 1.mp4';
+import vid5 from '../assets/images/vid 5.mp4';
+import vid4 from '../assets/images/vid 4.mp4';
+import vid7 from '../assets/images/vid7.mp4';
+
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -14,13 +23,13 @@ const Home = () => {
   const navigate = useNavigate();
 
   const videos = [
-    '/src/assets/images/vid 13.mp4',
-    '/src/assets/images/vid 2.mp4',
-    '/src/assets/images/vid 11.mp4',
-    '/src/assets/images/vid 12.mp4',
-    '/src/assets/images/vid 1.mp4',
-    '/src/assets/images/vid 5.mp4',
-    '/src/assets/images/vid 4.mp4',
+    vid13,
+    vid2,
+    vid11,
+    vid12,
+    vid1,
+    vid5,
+    vid4,
   ];
 
   const nextVideo = () => {
@@ -190,7 +199,7 @@ const Home = () => {
       {/* 5. "Freshnfreeze" Section with Background Video and Text */}
       <section className="freshnfreeze-promo">
         <video
-          src="/src/assets/images/vid7.mp4"
+          src={vid7}
           autoPlay
           loop
           muted
