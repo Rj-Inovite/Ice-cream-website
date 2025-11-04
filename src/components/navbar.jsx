@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { 
-  Heart, 
-  Search, 
-  Menu, 
-  X, 
-  ShoppingCart, 
-  User, 
-  Info, 
-  Tag 
+import {
+  Heart,
+  Search,
+  Menu,
+  X,
+  ShoppingCart,
+  User,
+  Info,
+  Tag
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import './navbar.css'; // Import the CSS file
 
 // Import logo correctly
 import Logo from "../assets/images/logo.png";
@@ -54,24 +55,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={styles.navbar}>
+    <nav className="navbar">
       {/* Logo Section */}
-      <div style={styles.logoSection}>
+      <div className="logo-section">
         <Link to="/">
-          <img src={Logo} alt="FreshnFreeze Logo" style={styles.logoImg} />
+          <img src={Logo} alt="FreshnFreeze Logo" className="logo-img" />
         </Link>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span style={styles.brandName}>FreshnFreeze</span>
+          <span className="brand-name">FreshnFreeze</span>
         </Link>
       </div>
 
       {/* Desktop Navigation Links */}
-      <ul style={styles.navLinks} className="desktop-links">
+      <ul className="nav-links">
         {pages.map((page, index) => (
           <li key={index}>
             <Link
               to={page.link}
-              style={{ ...styles.link, ...(hoveredLink === index ? styles.linkHover : {}) }}
+              className={`link ${hoveredLink === index ? 'link-hover' : ''}`}
               onMouseEnter={() => setHoveredLink(index)}
               onMouseLeave={() => setHoveredLink(null)}
             >
@@ -83,26 +84,26 @@ const Navbar = () => {
       </ul>
 
       {/* Icons */}
-      <div style={styles.navIcons} className="desktop-icons">
-        <Search style={styles.icon} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
-        <Heart style={styles.icon} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
+      <div className="nav-icons">
+        <Search className="icon" onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
+        <Heart className="icon" onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
         <Link to="/login">
-          <User style={styles.icon} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
+          <User className="icon" onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.2)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} />
         </Link>
       </div>
 
       {/* Mobile Menu Toggle */}
-      <div style={styles.menuIcon} onClick={() => setIsOpen(!isOpen)} className="mobile-menu-icon">
+      <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </div>
 
       {/* Mobile Navigation */}
-      <div style={styles.mobileMenu} className="mobile-menu">
+      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
         {pages.map((page, index) => (
           <Link
             key={index}
             to={page.link}
-            style={{ ...styles.link, ...(hoveredLink === index ? styles.linkHover : {}) }}
+            className={`link ${hoveredLink === index ? 'link-hover' : ''}`}
             onMouseEnter={() => setHoveredLink(index)}
             onMouseLeave={() => setHoveredLink(null)}
             onClick={() => setIsOpen(false)}
@@ -112,7 +113,7 @@ const Navbar = () => {
           </Link>
         ))}
         {/* Login icon for mobile menu */}
-        <Link to="/login" style={{ ...styles.link }}>
+        <Link to="/login" className="link">
           <User size={18} /> Login
         </Link>
       </div>
