@@ -1,11 +1,8 @@
-# TODO: Make Home Page Mobile Responsive
+# TODO: Change Font Style for Homepage Text
 
-## Steps to Complete
-- [x] Enhance @media (max-width: 768px) query in home.css for better tablet and mobile layout
-- [x] Enhance @media (max-width: 480px) query in home.css for small mobile devices
-- [x] Add @media (max-width: 1024px) query for larger tablets if needed
-- [x] Adjust flex layouts to stack vertically on mobile (e.g., love-section, counts-section)
-- [x] Update grid layouts (icecream-grid, customer-grid) to single column on mobile
-- [x] Reduce font sizes, padding, and margins for mobile readability
-- [x] Ensure images and videos scale properly on small screens
-- [x] Test responsiveness by running the app and checking on different screen sizes
+- [x] Add Google Fonts import for Pacifico in home.css
+- [x] Update .promo-text class to use Pacifico font-family and normal font-weight
+- [x] Run the app to verify the font change looks nice
+- [ ] Change Google Fonts import from Pacifico to Dancing Script in home.css
+- [ ] Update .promo-text class to use Dancing Script font-family
+- [ ] Run the app to verify the new font change looks nice

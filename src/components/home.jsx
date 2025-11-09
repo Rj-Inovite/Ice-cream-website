@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import CountUp from 'react-countup';
 import './home.css';
 import heart from '../assets/images/heart.png';
 import c7 from '../assets/images/c7.png';
@@ -384,7 +385,7 @@ const Home = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          We don't just serve ice cream—we serve tiny celebrations of life
+          We don't just serve ice cream we serve tiny celebrations of life
         </motion.p>
         <div className="customer-grid">
           {[
