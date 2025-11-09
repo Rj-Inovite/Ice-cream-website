@@ -405,6 +405,24 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .love-section {
+    padding: 0 20px;
+  }
+
+  .promo-text {
+    font-size: 1.2em;
+  }
+
+  .icecream-grid {
+    padding: 40px 30px;
+  }
+
+  .customer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .banner-section {
     height: 60vh;
@@ -426,11 +444,18 @@ body {
   }
 
   .love-section {
-    height: 60vh;
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
   }
 
-  .love-text {
-    font-size: 15vw;
+  .love-left {
+    margin-bottom: 30px;
+  }
+
+  .promo-text {
+    font-size: 1.1em;
+    text-align: center;
   }
 
   .love-heart {
@@ -443,7 +468,7 @@ body {
   }
 
   .count-item {
-    margin: 10px;
+    margin: 10px 0;
   }
 
   .count-number {
@@ -453,6 +478,7 @@ body {
   .icecream-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: 30px 20px;
+    gap: 20px;
   }
 
   .icecream-block img {
@@ -529,11 +555,11 @@ body {
   }
 
   .love-section {
-    height: 50vh;
+    padding: 30px 15px;
   }
 
-  .love-text {
-    font-size: 20vw;
+  .promo-text {
+    font-size: 1em;
   }
 
   .love-heart {
@@ -541,7 +567,7 @@ body {
   }
 
   .counts-section {
-    flex-direction: column;
+    padding: 20px 10px;
   }
 
   .count-number {
@@ -551,6 +577,7 @@ body {
   .icecream-grid {
     grid-template-columns: 1fr;
     padding: 20px 10px;
+    gap: 15px;
   }
 
   .icecream-block img {
@@ -582,6 +609,10 @@ body {
     height: 100px;
   }
 
+  .happy-customers-section {
+    padding: 40px 10px;
+  }
+
   .happy-customers-section h2 {
     font-size: 2.2em;
   }
@@ -591,7 +622,8 @@ body {
   }
 
   .customer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
   }
 
   .customer-circle {
