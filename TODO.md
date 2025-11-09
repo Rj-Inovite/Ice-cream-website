@@ -1,8 +1,7 @@
-# TODO: Change Font Style for Homepage Text
+# TODO: Update Promo Text Styling
 
-- [x] Add Google Fonts import for Pacifico in home.css
-- [x] Update .promo-text class to use Pacifico font-family and normal font-weight
-- [x] Run the app to verify the font change looks nice
-- [ ] Change Google Fonts import from Pacifico to Dancing Script in home.css
-- [ ] Update .promo-text class to use Dancing Script font-family
-- [ ] Run the app to verify the new font change looks nice
+- [x] Update base .promo-text font-size to 2.5em and font-weight to 900
+- [x] Update media query (max-width: 1024px) .promo-text font-size to 2em
+- [x] Update media query (max-width: 768px) .promo-text font-size to 1.8em
+- [x] Update media query (max-width: 480px) .promo-text font-size to 1.5em
+- [x] Add sliding animation to promo text lines (slide in from left with stagger)
