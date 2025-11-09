@@ -1,4 +1,7 @@
-- [ ] Add useAnimation and useEffect imports to home.jsx
-- [ ] Add controls and useEffect to trigger stagger animation when scroll opacity > 0.5
-- [ ] Modify the love-text JSX to split "Taste the Fresh.Feel the Freeze" into individual letters with motion.span and stagger variants
-- [ ] Test the animation by running the app
+# TODO: Add Background Video to Home Page
+
+## Steps to Complete:
+- [ ] Import the bg video in home.jsx
+- [ ] Add a wrapper div around sections from love-section to happy-customers-section in home.jsx, including the background video element
+- [ ] Update home.css to style the background-video-wrapper and promo-background-video for proper positioning and playback
+- [ ] Test the implementation to ensure video plays as background without interfering with content

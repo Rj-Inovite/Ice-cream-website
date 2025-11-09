@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+"use client"
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
@@ -15,7 +16,6 @@ import vid1 from '../assets/images/vid 1.mp4';
 import vid5 from '../assets/images/vid 5.mp4';
 import vid4 from '../assets/images/vid 4.mp4';
 import vid7 from '../assets/images/vid7.mp4';
-
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -45,9 +45,10 @@ const Home = () => {
     target: scrollRef,
     offset: ['start end', 'center center'] // Adjust these offsets as needed
   });
-  const backgroundColor = useTransform(loveScrollProgress, [0, 1], ['#ffffff', '#ADD8E6']); // Example: white to light blue
+  const backgroundColor = '#ffffff'; // White background
   const loveTextOpacity = useTransform(loveScrollProgress, [0.5, 1], [0, 1]);
   const loveTextY = useTransform(loveScrollProgress, [0.5, 1], [50, 0]);
+  const loveTextX = useTransform(loveScrollProgress, [0.5, 1], [100, 0]);
 
   const customerVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -61,6 +62,67 @@ const Home = () => {
       }
     })
   };
+
+  const Reordering = () => {
+    const [order, setOrder] = useState(initialImages)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setOrder(shuffle(order)), 1000)
+        return () => clearTimeout(timeout)
+    }, [order])
+
+    return (
+        <ul style={container}>
+            {order.map((image) => (
+                <motion.li
+                    key={image}
+                    layout
+                    transition={spring}
+                    style={{ ...item, backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                    whileHover={{ scale: 1.1, boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)" }}
+                />
+            ))}
+        </ul>
+    )
+  }
+
+  const initialImages = [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl_ShIC2aFG2RcceHZR3IQNsAuZByrl_kGGQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc3KxqokEP3Duu0RtEAu6VTi-94GsrgOQepA&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCLFB8TdJLwS4DZOpRi6J0cqFr1sh0aICWQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd_LJcsdOfUAGsjX_5bQyv6ww4smbIW8BwtQ&s",
+  ]
+
+  function shuffle([...array]) {
+      return array.sort(() => Math.random() - 0.5)
+  }
+
+  const spring = {
+      type: "spring",
+      damping: 20,
+      stiffness: 300,
+  }
+
+  const container = {
+      listStyle: "none",
+      padding: 0,
+      margin: 0,
+      position: "relative",
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 10,
+      width: 320,
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+  }
+
+  const item = {
+      width: 155,
+      height: 155,
+      borderRadius: "10px",
+      cursor: "pointer",
+  }
 
 
 
@@ -104,12 +166,23 @@ const Home = () => {
         className="love-section"
         style={{ backgroundColor }}
       >
-        <motion.h1
-          className="love-text"
-          style={{ opacity: loveTextOpacity, y: loveTextY }}
+        <div className="love-left">
+          <Reordering />
+        </div>
+        <motion.div
+          className="promo-text"
+          style={{
+            opacity: loveTextOpacity,
+            y: loveTextY,
+            x: loveTextX
+          }}
         >
-          <span className="love-word"> Taste the Fresh.Feel the Freeze</span>
-        </motion.h1>
+          Hey there, ice cream lover! 👋🍨<br />
+          Welcome to FreshNFreeze<br />
+          Crafted for Pure Delight<br />
+          From the finest ingredients to handcrafted flavours, every scoop tells a story 💫<br />
+          Indulge in luxury. Taste the magic 🍦✨
+        </motion.div>
       </motion.section>
         {/* Heart image - you'll need to position this using CSS relative to the love-text */}
         <img src={heart} alt="Heart" className="love-heart" />
