@@ -108,11 +108,19 @@ body {
 
 .promo-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #c71585; /* Dark pink color */
   font-size: 1.5em;
   text-align: center;
   line-height: 1.4;
   font-weight: bold;
+}
+
+.promo-line {
+  margin-bottom: 10px;
 }
 
 .love-text {
@@ -142,7 +150,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 50px 20px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 

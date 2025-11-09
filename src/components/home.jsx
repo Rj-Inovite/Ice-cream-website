@@ -152,20 +152,53 @@ const Home = () => {
         <div className="love-left">
           <Reordering />
         </div>
-        <motion.div
-          className="promo-text"
-          style={{
-            opacity: loveTextOpacity,
-            y: loveTextY,
-            x: loveTextX
-          }}
-        >
-          Hey there, ice cream lover! 👋🍨<br />
-          Welcome to FreshNFreeze<br />
-          Crafted for Pure Delight<br />
-          From the finest ingredients to handcrafted flavours, every scoop tells a story 💫<br />
-          Indulge in luxury. Taste the magic 🍦✨
-        </motion.div>
+        <div className="promo-text">
+          <motion.div
+            className="promo-line"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            Hey there, ice cream lover! 👋🍨
+          </motion.div>
+          <motion.div
+            className="promo-line"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            Welcome to FreshNFreeze
+          </motion.div>
+          <motion.div
+            className="promo-line"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            Crafted for Pure Delight
+          </motion.div>
+          <motion.div
+            className="promo-line"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            From the finest ingredients to handcrafted flavours, every scoop tells a story 💫
+          </motion.div>
+          <motion.div
+            className="promo-line"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            Indulge in luxury. Taste the magic 🍦✨
+          </motion.div>
+        </div>
       </motion.section>
         {/* Heart image - you'll need to position this using CSS relative to the love-text */}
         <img src={heart} alt="Heart" className="love-heart" />
@@ -181,7 +214,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            50+
+            <CountUp end={50} duration={2} suffix="+" />
           </motion.span>
           <p>Stores</p>
         </div>
@@ -193,7 +226,7 @@ const Home = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            10,000+
+            <CountUp end={10000} duration={2} suffix="+" />
           </motion.span>
           <p>Happy Customers</p>
         </div>

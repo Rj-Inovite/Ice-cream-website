@@ -71,8 +71,8 @@ const Franchise = () => {
 
         {/* Header */}
         <div className="text-center mb-5">
-          <h1 className="display-4 fw-bolder pb-2 text-primary-custom border-bottom border-3 border-danger-subtle d-inline-block">
-            Partner with Fresh and Freeze
+          <h1 className="display-4 fw-bolder pb-2 text-primary-custom d-inline-block">
+            Partner with FreshnFreeze
           </h1>
           <p className="text-secondary mt-2 fs-5">
             Join our growing family and bring the joy of premium ice cream to your city!

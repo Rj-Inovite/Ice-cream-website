@@ -391,7 +391,7 @@ export default function FreshNFreezeAuth() {
 const styles = {
   loginContainer: {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -417,7 +417,7 @@ const styles = {
     padding: '45px',
     width: '100%',
     maxWidth: '460px',
-    boxShadow: '0 25px 70px rgba(102, 126, 234, 0.4)',
+    boxShadow: '0 25px 70px rgba(245, 87, 108, 0.4)',
     position: 'relative',
     zIndex: 1,
   },
@@ -437,11 +437,11 @@ const styles = {
   },
   loginIconWrapper: {
     display: 'inline-block',
-    background: 'linear-gradient(135deg, #667eea, #764ba2)',
+    background: 'linear-gradient(135deg, #f093fb, #f5576c)',
     borderRadius: '50%',
     padding: '18px',
     marginBottom: '16px',
-    boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)',
+    boxShadow: '0 8px 20px rgba(245, 87, 108, 0.3)',
   },
   signupIconWrapper: {
     display: 'inline-block',
@@ -454,7 +454,7 @@ const styles = {
   loginBrand: {
     fontSize: '36px',
     fontWeight: '800',
-    background: 'linear-gradient(135deg, #667eea, #764ba2)',
+    background: 'linear-gradient(135deg, #f093fb, #f5576c)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     margin: '0 0 8px 0',
@@ -563,7 +563,7 @@ const styles = {
   },
   loginButton: {
     padding: '17px',
-    background: 'linear-gradient(135deg, #667eea, #764ba2)',
+    background: 'linear-gradient(135deg, #f093fb, #f5576c)',
     color: 'white',
     border: 'none',
     borderRadius: '14px',
@@ -571,7 +571,7 @@ const styles = {
     fontWeight: '700',
     cursor: 'pointer',
     marginTop: '10px',
-    boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)',
+    boxShadow: '0 8px 20px rgba(245, 87, 108, 0.3)',
   },
   signupButton: {
     padding: '17px',
