@@ -9,12 +9,6 @@ import c5 from '../assets/images/c5.png';
 import b3 from '../assets/images/b3.png';
 import img12 from '../assets/images/12.png';
 import vid13 from '../assets/images/vid 13.mp4';
-import vid2 from '../assets/images/vid 2.mp4';
-import vid11 from '../assets/images/vid 11.mp4';
-import vid12 from '../assets/images/vid 12.mp4';
-import vid1 from '../assets/images/vid 1.mp4';
-import vid5 from '../assets/images/vid 5.mp4';
-import vid4 from '../assets/images/vid 4.mp4';
 import vid7 from '../assets/images/vid7.mp4';
 
 const Home = () => {
@@ -24,12 +18,7 @@ const Home = () => {
 
   const videos = [
     vid13,
-    vid2,
-    vid11,
-    vid12,
-    vid1,
-    vid5,
-    vid4,
+   
   ];
 
   const nextVideo = () => {
@@ -143,12 +132,6 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           />
-          <button className="nav-btn prev-btn" onClick={prevVideo}>
-            ‹
-          </button>
-          <button className="nav-btn next-btn" onClick={nextVideo}>
-            ›
-          </button>
           <div className="video-indicators">
             {videos.map((_, index) => (
               <span
