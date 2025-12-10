@@ -1,5 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff, IceCream, User, Mail, Lock, ArrowRight, Sparkles } from 'lucide-react';
+
+// All user-provided titles, including the final one.
+const ALL_POPUP_TITLES = [
+  "Welcome! Ab shuru hoga flavour ka safar? 🤭🍧✨",
+  "“Oh hey… you look like you need a treat 🍦💕”",
+  "Come here, I’ve got something sweet for you 😩🍧",
+  "Mood Kharaab? Ice-Cream order kardu ? 😌🍨💅",
+  "Thoda Chill Hoja Yaar chalo icecream khaao❄️",
+  "Scoop Bula Raha Hai… 🤭✨",
+  "Scoop 1, Stress 0 😌❄️",
+  " YOU ! yes you need an Ice Cream Therapy? 😩🍨",
+  ];
 
 export default function FreshNFreezeAuth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,6 +26,27 @@ export default function FreshNFreezeAuth() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
+  
+  // New state for the pop-up modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [popupTitle, setPopupTitle] = useState('');
+
+  // Effect to handle the random pop-up title and timing
+  useEffect(() => {
+    // Select a random title
+    const randomIndex = Math.floor(Math.random() * ALL_POPUP_TITLES.length);
+    setPopupTitle(ALL_POPUP_TITLES[randomIndex]);
+
+    // Show modal only on initial load
+    setIsModalOpen(true);
+
+    // Set a timer to close the modal after 4 seconds
+    const timer = setTimeout(() => {
+        setIsModalOpen(false);
+    }, 4000);
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount/re-render
+  }, []); // Empty array runs only once on mount
 
   const validateEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -58,6 +91,7 @@ export default function FreshNFreezeAuth() {
       setIsLoading(true);
       
       try {
+        // Mock API call delay
         await new Promise(resolve => setTimeout(resolve, 1500));
         
         const response = {
@@ -90,6 +124,39 @@ export default function FreshNFreezeAuth() {
     setSuccessMessage('');
   };
 
+  // --- Modal Renderer ---
+  const renderPopupModal = () => {
+    if (!isModalOpen || !popupTitle) return null;
+
+    // Split title by emoji to display them distinctly (important for Zomato style)
+    const parts = popupTitle.split(/([\u2700-\u27BF\uE000-\uF8FF\u200D\uFE0F]|\p{Emoji_Presentation})/u).filter(Boolean);
+
+    return (
+        <div style={styles.popupModalWrapper} className="slide-in-right-bounce">
+            <div style={styles.popupModalContent}>
+                <p style={styles.popupModalTitle}>
+                    {parts.map((part, index) => (
+                        <span 
+                            key={index} 
+                            style={part.match(/([\u2700-\u27BF\uE000-\uF8FF\u200D\uFE0F]|\p{Emoji_Presentation})/u) ? styles.popupEmoji : styles.popupText}
+                        >
+                            {part}
+                        </span>
+                    ))}
+                </p>
+                <button
+                    onClick={() => setIsModalOpen(false)}
+                    style={styles.closeButton}
+                >
+                    &times;
+                </button>
+            </div>
+            <div style={styles.popupModalTimer}></div>
+        </div>
+    );
+  };
+  // ----------------------
+
   const containerStyle = isLogin ? styles.loginContainer : styles.signupContainer;
   const cardStyle = isLogin ? styles.loginCard : styles.signupCard;
   const iconWrapperStyle = isLogin ? styles.loginIconWrapper : styles.signupIconWrapper;
@@ -119,6 +186,22 @@ export default function FreshNFreezeAuth() {
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
+        }
+        
+        // Custom animation for the popup: slides in from right with a slight bounce
+        @keyframes slideInRightBounce {
+            0% { opacity: 0; transform: translateX(100%) scale(0.8); }
+            70% { opacity: 1; transform: translateX(-10px) scale(1.05); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        @keyframes timerCountdown {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+
+        .slide-in-right-bounce { 
+            animation: slideInRightBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
         }
 
         @keyframes spin {
@@ -191,6 +274,9 @@ export default function FreshNFreezeAuth() {
           animation: slideInRight 0.5s ease-out;
         }
       `}</style>
+      
+      {/* Cringe/Cute Popup Modal */}
+      {renderPopupModal()}
 
       {isLogin ? (
         <>
@@ -659,4 +745,62 @@ const styles = {
     fontSize: '14px',
     fontWeight: '500',
   },
+  
+  // --- New Popup Styles ---
+  popupModalWrapper: {
+    position: 'fixed',
+    top: '30px',
+    right: '20px',
+    zIndex: 1000,
+    width: '100%',
+    maxWidth: '350px',
+    borderRadius: '16px',
+    boxShadow: '0 10px 30px rgba(245, 87, 108, 0.6)',
+    overflow: 'hidden',
+    cursor: 'pointer',
+    // transform is managed by CSS animation class
+  },
+  popupModalContent: {
+    background: 'white',
+    padding: '16px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  popupModalTitle: {
+    margin: 0,
+    fontSize: '17px',
+    fontWeight: '700',
+    lineHeight: '1.4',
+    color: '#374151',
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  popupText: {
+    color: '#374151',
+    fontSize: '17px',
+    fontWeight: '700',
+  },
+  popupEmoji: {
+    fontSize: '22px',
+    margin: '0 2px',
+    // Apply a light animation to the emoji for extra cuteness
+    animation: 'bounce 1.5s ease-in-out infinite', 
+  },
+  closeButton: {
+    background: 'none',
+    border: 'none',
+    fontSize: '24px',
+    color: '#9ca3af',
+    cursor: 'pointer',
+    padding: '0 5px',
+    lineHeight: 1,
+  },
+  popupModalTimer: {
+    height: '4px',
+    background: 'linear-gradient(90deg, #f093fb, #f5576c)',
+    animation: 'timerCountdown 4s linear forwards',
+  },
 };
+

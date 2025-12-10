@@ -63,7 +63,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
-  margin-right: -10px;
+  margin-left: -10px;
 }
 
 .icon {

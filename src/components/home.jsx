@@ -145,7 +145,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Scroll-triggered "Love" section with animated background and text */}
+      {/* Ice Cream Scroll Section */}
       <motion.section
         className="love-section"
         style={{ backgroundColor }}
